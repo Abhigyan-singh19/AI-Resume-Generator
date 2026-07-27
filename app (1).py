@@ -84,7 +84,7 @@ def prompt_generator(agent):
   return "Prompt file generated successfully, agent can read it "
 
   #========== tool 2 ================
-
+prompt_generator(model)
 def resume_maker_prompt():
   """this fucntion just gives
   updated prompt for model"""
@@ -92,7 +92,8 @@ def resume_maker_prompt():
   with open('prompt.py', 'r') as f:
     prompt = f.read()
   return prompt
-
+    
+resume_maker_promt()
 # ========= GENERATE RESUME ==========
 
 prompt = """You are a helpful AI assistant
@@ -115,4 +116,5 @@ if st.button("Generate Resume"):
     response = agent.invoke ({'messages':[{'role':'user','content':query}]})
     code = response['messages'][-1].content[-1]['text']
 
-    st.markdown(code)
+    #st.markdown(code)
+    st.html(code, width = "stretch", unsafe_allow_javascript = True)
