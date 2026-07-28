@@ -29,8 +29,7 @@ else:
 #====================================================
 model=ChatGoogleGenerativeAI(
     google_api_key=GOOGLE,
-    model='gemini-3.5-flash-lite',
-    temperature=1
+    model='gemini-3.5-flash-lite'
 )
 def search_jobs(query):
   """this function helps to find recent news or recent jobs related to given search query suppose user to write a python develpoer or should return trending news and job links """
@@ -113,8 +112,8 @@ query = final_prompt+user_details
 
 import base64
 
-if st.button('generate resume'):
-  with st.spinner("runnign agent"):
+if st.button('Generate resume'):
+  with st.spinner("Running agent"):
 
     response = agent.invoke({'messages': [{'role':'user','content':query}]})
     print(response['messages'][-1].content)
@@ -127,10 +126,10 @@ if st.button('generate resume'):
         data_uri = f"data:image/jpeg;base64,{b64_image}"
         code = code.replace("PROFILE_IMAGE_PLACEHOLDER", data_uri)
 
-    st.html(code , width="stretch" , unsafe_allow_javascript=True)
+   
       
     response = agent.invoke({'messages': [{'role':'user','content':query}]})
-    print(response['messages'][-1].content)
+    
     code=response['messages'][-1].content[-1]['text']
     #st.markdown(code)
     st.html(code , width="stretch" , unsafe_allow_javascript=True)
