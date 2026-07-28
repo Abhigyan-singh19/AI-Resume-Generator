@@ -122,7 +122,7 @@ JOB_PROFILE = ["PYTHON DEVELOPMENT",'GEN AI',
 PROFILE = st.sidebar.multiselect("SELECT JOB ROLE",
                                  options = JOB_PROFILE)
 
-job_prompt = f"""Based on {PROFILE} jobs in {LOCATIONS},
+job_prompt = f"""Based on {PROFILE} jobs in {LOCATION},
 want latest job news in using tavily,
 try top 10 searcch or whatever available 
 and give result like naukri theme desgin with 
